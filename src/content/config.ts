@@ -67,7 +67,7 @@ const temasCollection = defineCollection({
     id: z.enum(temas),
     titulo: z.string(),
     descripcion: z.string(),
-    icono: z.string(), // Nombre del icono de lucide
+    icono: z.string(),
     color: z.string(),
     preguntas: z.array(z.string()).optional(),
     autores_relacionados: z.array(z.string()).optional(),

@@ -7,7 +7,7 @@ tipo: "cuento"
 temas_principales: 
   - "realidad-sueno"
   - "identidad-memoria"
-  - "creacion-artistica"
+  - "belleza-arte"
 temas_secundarios:
   - "tiempo-eternidad"
   - "dios-sagrado"
