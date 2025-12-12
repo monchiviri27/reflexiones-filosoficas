@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CardObra from '../../components/CardObra.astro';
+import { getCollection } from 'astro:content';
+
+// Obtener rutas estáticas para autores
+export async function getStaticPaths() {
+  const obras = await getCollection('obras');
+  const autoresUnicos = [...new Set(obras.map(o => o.data.autor))];
+  
+  return autoresUnicos.map(autor => ({
+    params: { 
+      autor: autor.toLowerCase().replace(/ /g, '-') 
+    },
+    props: { autorNombre: autor }
+  }));
+}
+
+const { autorNombre } = Astro.props;
+const { autor } = Astro.params;
+
+if (!autorNombre) {
+  return Astro.redirect('/404');
+}
+
+// Obtener obras de este autor
+const obras = await getCollection('obras');
+const obrasDelAutor = obras.filter(obra => 
+  obra.data.publicado && 
+  obra.data.autor.toLowerCase() === autorNombre.toLowerCase()
+);
+
+if (obrasDelAutor.length === 0) {
+  return Astro.redirect('/404');
+}
+
+// Obtener información del autor (si existe en colección)
+const autores = await getCollection('autores');
+const infoAutor = autores.find(a => 
+  a.data.nombre.toLowerCase() === autorNombre.toLowerCase()
+);
+
+// Obtener temas únicos de las obras del autor
+const temasUnicos = [...new Set(
+  obrasDelAutor.flatMap(obra => obra.data.temas_principales)
+)];
+
+// Obtener otros autores
+const otrosAutores = Array.from(
+  new Set(obras.map(o => o.data.autor).filter(a => a.toLowerCase() !== autorNombre.toLowerCase()))
+).slice(0, 4);
+---
+
+<BaseLayout title={autorNombre}>
+  <article class="max-w-6xl mx-auto">
+    <!-- Header del autor -->
+    <header class="mb-12">
+      <div class="mb-4">
+        <a href="/autores" class="text-filosofia-acento hover:underline">&larr; Volver a autores</a>
+      </div>
+      
+      <div class="flex items-start gap-6 mb-8">
+        <div class="w-24 h-24 bg-filosofia-primario/10 rounded-full flex items-center justify-center text-4xl font-bold text-filosofia-primario flex-shrink-0">
+          {autorNombre.charAt(0)}
+        </div>
+        
+        <div>
+          <h1 class="text-4xl md:text-5xl font-display font-bold text-filosofia-primario mb-2">
+            {autorNombre}
+          </h1>
+          
+          {infoAutor ? (
+            <div class="prose max-w-none">
+              <p class="text-gray-600">{infoAutor.data.biografia}</p>
+              <div class="flex items-center gap-4 mt-3 text-sm text-gray-500">
+                <span>{infoAutor.data.epoca}</span>
+                <span>•</span>
+                <span>{infoAutor.data.nacionalidad}</span>
+              </div>
+            </div>
+          ) : (
+            <p class="text-gray-600">
+              Autor destacado con {obrasDelAutor.length} obras en nuestra colección.
+              Exploramos sus textos desde una perspectiva filosófica.
+            </p>
+          )}
+        </div>
+      </div>
+      
+      <!-- Temas del autor -->
+      {temasUnicos.length > 0 && (
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-filosofia-primario mb-3">
+            Temas recurrentes
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            {temasUnicos.map(tema => (
+              <a 
+                href={`/temas/${tema}`}
+                class="badge-tema bg-filosofia-primario/10 text-filosofia-primario hover:bg-filosofia-primario hover:text-white transition-colors"
+              >
+                {tema.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
+    
+    <!-- Obras del autor -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-display font-bold text-filosofia-primario mb-8">
+        Obras analizadas
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {obrasDelAutor.map(obra => (
+          <CardObra obra={obra} />
+        ))}
+      </div>
+    </section>
+    
+    <!-- Estadísticas del autor -->
+    <section class="bg-filosofia-claro p-8 rounded-2xl mb-12">
+      <h3 class="text-2xl font-display font-bold text-filosofia-primario mb-6">
+        Sobre la obra de {autorNombre}
+      </h3>
+      
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white p-4 rounded-lg text-center">
+          <div class="text-2xl font-bold text-filosofia-primario mb-1">
+            {obrasDelAutor.length}
+          </div>
+          <div class="text-sm text-gray-600">Obras analizadas</div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-lg text-center">
+          <div class="text-2xl font-bold text-filosofia-primario mb-1">
+            {temasUnicos.length}
+          </div>
+          <div class="text-sm text-gray-600">Temas diferentes</div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-lg text-center">
+          <div class="text-2xl font-bold text-filosofia-primario mb-1">
+            {new Set(obrasDelAutor.map(o => o.data.tipo)).size}
+          </div>
+          <div class="text-sm text-gray-600">Tipos de obra</div>
+        </div>
+        
+        <div class="bg-white p-4 rounded-lg text-center">
+          <div class="text-2xl font-bold text-filosofia-primario mb-1">
+            {obrasDelAutor[0]?.data.epoca || 'Contemporánea'}
+          </div>
+          <div class="text-sm text-gray-600">Época principal</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Otros autores -->
+    {otrosAutores.length > 0 && (
+      <section class="pt-8 border-t">
+        <h2 class="text-2xl font-display font-semibold text-filosofia-primario mb-6">
+          Otros autores que podrían interesarte
+        </h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {otrosAutores.map(autor => {
+            const obrasAutor = obras.filter(o => o.data.autor === autor);
+            return (
+              <a 
+                href={`/autores/${autor.toLowerCase().replace(/ /g, '-')}`}
+                class="bg-white p-4 rounded-lg border hover:shadow-md transition-all group"
+              >
+                <div class="flex items-center gap-3 mb-2">
+                  <div class="w-10 h-10 bg-filosofia-acento/10 rounded-full flex items-center justify-center text-lg font-bold text-filosofia-acento">
+                    {autor.charAt(0)}
+                  </div>
+                  <div>
+                    <h3 class="font-medium text-filosofia-primario group-hover:text-filosofia-acento">
+                      {autor}
+                    </h3>
+                    <p class="text-xs text-gray-500">
+                      {obrasAutor.length} obra{obrasAutor.length !== 1 ? 's' : ''}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>

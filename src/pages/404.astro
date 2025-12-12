@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Página no encontrada">
+  <div class="min-h-[70vh] flex flex-col items-center justify-center text-center">
+    <div class="text-8xl mb-6">🔍</div>
+    <h1 class="text-4xl font-display font-bold text-filosofia-primario mb-4">
+      404 - Página no encontrada
+    </h1>
+    <p class="text-xl text-gray-600 mb-8 max-w-md">
+      La obra o página que buscas no existe en nuestra biblioteca filosófica.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="/" class="btn-primario">
+        Volver al inicio
+      </a>
+      <a href="/obras" class="btn-secundario">
+        Explorar obras
+      </a>
+      <a href="/temas" class="btn-secundario">
+        Ver temas
+      </a>
+    </div>
+  </div>
+</BaseLayout>

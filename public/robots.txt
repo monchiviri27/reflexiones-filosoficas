@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://reflexiones-filosoficas.vercel.app/sitemap-index.xmlUser-agent: *
+Allow: /
+Sitemap: https://reflexiones-filosoficas.vercel.app/sitemap-index.xml

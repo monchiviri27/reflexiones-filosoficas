@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CardObra from '../../components/CardObra.astro';
+import { getCollection } from 'astro:content';
+
+// Obtener todos los temas para rutas estáticas
+export async function getStaticPaths() {
+  const temas = await getCollection('temas');
+  return temas.map(t => ({
+    params: { tema: t.id },
+    props: { temaId: t.id }
+  }));
+}
+
+const { temaId } = Astro.props;
+const { tema } = Astro.params;
+
+// Obtener el tema
+const temas = await getCollection('temas');
+const temaActual = temas.find(t => t.id === temaId || t.id === tema);
+
+if (!temaActual) {
+  return Astro.redirect('/404');
+}
+
+// Obtener obras de este tema
+const obras = await getCollection('obras');
+const obrasDelTema = obras.filter(obra => 
+  obra.data.publicado && 
+  obra.data.temas_principales.includes(temaActual.id)
+);
+
+// Obtener otros temas relacionados
+const otrosTemas = temas.filter(t => t.id !== temaActual.id).slice(0, 4);
+
+// Obtener contenido del tema
+const { Content } = await temaActual.render();
+---
+
+<BaseLayout title={temaActual.data.titulo}>
+  <article class="max-w-6xl mx-auto">
+    <!-- Header del tema -->
+    <header class="mb-12">
+      <div class="mb-4">
+        <a href="/temas" class="text-filosofia-acento hover:underline">&larr; Volver a temas</a>
+      </div>
+      
+      <div class="flex items-center gap-4 mb-6">
+        <div 
+          class="p-4 rounded-2xl text-4xl"
+          style={`background-color: ${temaActual.data.color}20; color: ${temaActual.data.color};`}
+        >
+          {temaActual.data.icono}
+        </div>
+        <div>
+          <h1 class="text-4xl md:text-5xl font-display font-bold text-filosofia-primario">
+            {temaActual.data.titulo}
+          </h1>
+          <p class="text-lg text-gray-600 mt-2">
+            {obrasDelTema.length} obras relacionadas
+          </p>
+        </div>
+      </div>
+      
+      <div class="prose prose-lg max-w-none bg-white p-6 rounded-lg border">
+        <Content />
+      </div>
+    </header>
+    
+    <!-- Obras de este tema -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-display font-bold text-filosofia-primario mb-8">
+        Obras sobre {temaActual.data.titulo.toLowerCase()}
+      </h2>
+      
+      {obrasDelTema.length > 0 ? (
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {obrasDelTema.map(obra => (
+            <CardObra obra={obra} />
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-12 bg-gray-50 rounded-lg">
+          <div class="text-4xl mb-4">📚</div>
+          <h3 class="text-xl font-semibold text-gray-700 mb-2">
+            Próximamente
+          </h3>
+          <p class="text-gray-600">
+            Estamos preparando obras para este tema. Mientras tanto, explora otros temas.
+          </p>
+        </div>
+      )}
+    </section>
+    
+    <!-- Otros temas relacionados -->
+    {otrosTemas.length > 0 && (
+      <section class="pt-8 border-t">
+        <h2 class="text-2xl font-display font-semibold text-filosofia-primario mb-6">
+          Otros temas que podrían interesarte
+        </h2>
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {otrosTemas.map(t => (
+            <a 
+              href={`/temas/${t.id}`}
+              class="bg-white p-4 rounded-lg border hover:shadow-md transition-all group"
+            >
+              <div class="flex items-center gap-3 mb-2">
+                <span class="text-xl">{t.data.icono}</span>
+                <h3 class="font-medium text-filosofia-primario group-hover:text-filosofia-acento">
+                  {t.data.titulo}
+                </h3>
+              </div>
+              <p class="text-sm text-gray-600 line-clamp-2">
+                {t.data.descripcion}
+              </p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>

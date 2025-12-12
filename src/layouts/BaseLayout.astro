@@ -1,0 +1,52 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
+import '../styles/global.css';
+
+const { title = 'Reflexiones Filosóficas' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %> | Reflexiones Filosóficas</title>
+  <meta name="description" content="Exploración de obras literarias con análisis filosófico: cuentos, poemas y ensayos con reflexión profunda.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url} />
+  <meta property="og:description" content="Exploración filosófica de obras literarias" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body class="min-h-screen flex flex-col">
+  <Header />
+  
+  <div class="container mx-auto px-4 py-8 flex-1 flex flex-col lg:flex-row gap-8">
+    <main class="flex-1 fade-in">
+      <slot />
+    </main>
+    
+    <aside class="lg:w-80">
+      <Sidebar />
+    </aside>
+  </div>
+  
+  <Footer />
+  
+  <!-- Scripts -->
+  <script>
+    // Tema oscuro/claro
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
+</body>
+</html>

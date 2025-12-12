@@ -1,0 +1,54 @@
+---
+interface Props {
+  obra: any;
+}
+
+const { obra } = Astro.props;
+const tipoIconos = {
+  poema: '📜',
+  cuento: '📖',
+  ensayo: '✍️',
+  microficcion: '⚡'
+};
+---
+
+<a href={`/obras/${obra.id}`} class="card-obra group h-full">
+  <div class="p-6 flex flex-col h-full">
+    <!-- Badge tipo -->
+    <div class="flex justify-between items-start mb-4">
+      <span class="text-2xl">
+        {tipoIconos[obra.data.tipo]}
+      </span>
+      <span class="text-xs text-filosofia-secundario bg-gray-100 px-2 py-1 rounded">
+        {obra.data.dificultad}
+      </span>
+    </div>
+    
+    <!-- Título y autor -->
+    <h3 class="font-display text-xl font-semibold text-filosofia-primario mb-2 group-hover:text-filosofia-acento transition-colors">
+      {obra.data.titulo}
+    </h3>
+    <p class="text-sm text-filosofia-secundario mb-3">
+      {obra.data.autor}
+    </p>
+    
+    <!-- Resumen -->
+    <p class="text-gray-600 mb-4 flex-1">
+      {obra.data.resumen}
+    </p>
+    
+    <!-- Temas -->
+    <div class="flex flex-wrap gap-2 mt-4">
+      {obra.data.temas_principales.slice(0, 2).map((tema) => (
+        <span class="text-xs bg-filosofia-primario/10 text-filosofia-primario px-2 py-1 rounded">
+          {tema.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+        </span>
+      ))}
+      {obra.data.temas_principales.length > 2 && (
+        <span class="text-xs text-gray-500">
+          +{obra.data.temas_principales.length - 2}
+        </span>
+      )}
+    </div>
+  </div>
+</a>

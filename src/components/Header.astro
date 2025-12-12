@@ -1,0 +1,106 @@
+---
+import { BookOpen, Search, Menu, X } from 'lucide-astro';
+import { temas } from '../content/config';
+---
+
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b shadow-sm">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="p-2 bg-filosofia-primario text-white rounded-lg group-hover:bg-filosofia-acento transition-colors">
+          <BookOpen size={24} />
+        </div>
+        <div>
+          <h1 class="text-2xl font-display font-bold text-filosofia-primario">
+            Reflexiones Filosóficas
+          </h1>
+          <p class="text-sm text-filosofia-secundario">
+            Literatura y pensamiento profundo
+          </p>
+        </div>
+      </a>
+      
+      <!-- Navegación Desktop -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/" class="text-filosofia-primario hover:text-filosofia-acento font-medium transition-colors">
+          Inicio
+        </a>
+        <a href="/obras" class="text-filosofia-primario hover:text-filosofia-acento font-medium transition-colors">
+          Todas las obras
+        </a>
+        <a href="/temas" class="text-filosofia-primario hover:text-filosofia-acento font-medium transition-colors">
+          Temas
+        </a>
+        <a href="/autores" class="text-filosofia-primario hover:text-filosofia-acento font-medium transition-colors">
+          Autores
+        </a>
+        <a href="/acerca" class="text-filosofia-primario hover:text-filosofia-acento font-medium transition-colors">
+          Acerca
+        </a>
+        
+        <!-- Botón búsqueda -->
+        <button class="p-2 text-filosofia-secundario hover:text-filosofia-acento transition-colors">
+          <Search size={20} />
+        </button>
+      </nav>
+      
+      <!-- Menú móvil -->
+      <button id="menu-toggle" class="md:hidden p-2 text-filosofia-primario">
+        <Menu size={24} />
+      </button>
+    </div>
+    
+    <!-- Menú móvil desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t pt-4">
+      <div class="flex flex-col gap-4">
+        <a href="/" class="text-filosofia-primario hover:text-filosofia-acento font-medium py-2">
+          Inicio
+        </a>
+        <a href="/obras" class="text-filosofia-primario hover:text-filosofia-acento font-medium py-2">
+          Todas las obras
+        </a>
+        <a href="/temas" class="text-filosofia-primario hover:text-filosofia-acento font-medium py-2">
+          Temas
+        </a>
+        <a href="/autores" class="text-filosofia-primario hover:text-filosofia-acento font-medium py-2">
+          Autores
+        </a>
+        <a href="/acerca" class="text-filosofia-primario hover:text-filosofia-acento font-medium py-2">
+          Acerca
+        </a>
+      </div>
+      
+      <!-- Nube de temas (móvil) -->
+      <div class="mt-6 pt-6 border-t">
+        <h3 class="font-semibold text-filosofia-primario mb-3">Temas populares</h3>
+        <div class="flex flex-wrap gap-2">
+          {temas.slice(0, 6).map(tema => (
+            <a 
+              href={`/temas/${tema}`}
+              class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full hover:bg-filosofia-acento hover:text-white transition-colors"
+            >
+              {tema.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Toggle menú móvil
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    const icon = this.querySelector('svg');
+    
+    if (menu.classList.contains('hidden')) {
+      menu.classList.remove('hidden');
+      icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />`; // Icono X
+    } else {
+      menu.classList.add('hidden');
+      icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />`; // Icono menu
+    }
+  });
+</script>

@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CardObra from '../../components/CardObra.astro';
+import { getCollection } from 'astro:content';
+
+// Obtener todas las obras
+const obras = await getCollection('obras');
+const obrasPublicadas = obras
+  .filter(o => o.data.publicado)
+  .sort((a, b) => new Date(b.data.fecha).getTime() - new Date(a.data.fecha).getTime());
+
+// Contar por tipo
+const conteoTipos = obrasPublicadas.reduce((acc, obra) => {
+  acc[obra.data.tipo] = (acc[obra.data.tipo] || 0) + 1;
+  return acc;
+}, {});
+
+// URL params para filtros
+const url = new URL(Astro.request.url);
+const tipoFiltro = url.searchParams.get('tipo');
+const temaFiltro = url.searchParams.get('tema');
+
+let obrasFiltradas = obrasPublicadas;
+
+if (tipoFiltro) {
+  obrasFiltradas = obrasFiltradas.filter(o => o.data.tipo === tipoFiltro);
+}
+
+if (temaFiltro) {
+  obrasFiltradas = obrasFiltradas.filter(o => 
+    o.data.temas_principales.includes(temaFiltro) || 
+    o.data.temas_secundarios?.includes(temaFiltro)
+  );
+}
+---
+
+<BaseLayout title="Todas las obras">
+  <div class="mb-12">
+    <h1 class="text-4xl font-display font-bold text-filosofia-primario mb-4">
+      Obras literarias
+    </h1>
+    <p class="text-lg text-gray-600">
+      Colección de {obrasPublicadas.length} poemas, cuentos y ensayos con análisis filosófico.
+      Filtra por tipo o tema para encontrar lo que buscas.
+    </p>
+  </div>
+  
+  <!-- Filtros -->
+  <div class="bg-white p-6 rounded-lg shadow-sm border mb-8">
+    <div class="flex flex-col md:flex-row md:items-center gap-6">
+      <!-- Filtro por tipo -->
+      <div>
+        <h3 class="font-semibold text-filosofia-primario mb-2">Tipo</h3>
+        <div class="flex flex-wrap gap-2">
+          <a 
+            href="/obras"
+            class={`px-4 py-2 rounded-full ${!tipoFiltro ? 'bg-filosofia-acento text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+          >
+            Todos ({obrasPublicadas.length})
+          </a>
+          {Object.entries(conteoTipos).map(([tipo, count]) => (
+            <a 
+              href={`/obras?tipo=${tipo}`}
+              class={`px-4 py-2 rounded-full ${tipoFiltro === tipo ? 'bg-filosofia-acento text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+            >
+              {tipo === 'poema' ? 'Poemas' : 
+               tipo === 'cuento' ? 'Cuentos' : 
+               tipo === 'ensayo' ? 'Ensayos' : 'Microficción'} ({count})
+            </a>
+          ))}
+        </div>
+      </div>
+      
+      <!-- Buscador -->
+      <div class="md:ml-auto">
+        <h3 class="font-semibold text-filosofia-primario mb-2">Buscar</h3>
+        <form class="relative">
+          <input 
+            type="text" 
+            placeholder="Buscar por título o autor..." 
+            class="pl-10 pr-4 py-2 border rounded-lg w-full md:w-64 focus:outline-none focus:border-filosofia-acento"
+          />
+          <div class="absolute left-3 top-3 text-gray-400">
+            🔍
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Mostrar filtros activos -->
+    {(tipoFiltro || temaFiltro) && (
+      <div class="mt-6 pt-6 border-t">
+        <div class="flex items-center gap-2">
+          <span class="text-sm text-gray-600">Filtros activos:</span>
+          {tipoFiltro && (
+            <span class="text-sm bg-filosofia-acento/20 text-filosofia-acento px-3 py-1 rounded-full flex items-center gap-1">
+              {tipoFiltro}
+              <a href={temaFiltro ? `/obras?tema=${temaFiltro}` : '/obras'} class="ml-1 hover:text-red-500">
+                ×
+              </a>
+            </span>
+          )}
+          {temaFiltro && (
+            <span class="text-sm bg-filosofia-acento/20 text-filosofia-acento px-3 py-1 rounded-full flex items-center gap-1">
+              {temaFiltro.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}
+              <a href={tipoFiltro ? `/obras?tipo=${tipoFiltro}` : '/obras'} class="ml-1 hover:text-red-500">
+                ×
+              </a>
+            </span>
+          )}
+          <a href="/obras" class="text-sm text-gray-600 hover:text-filosofia-acento ml-2">
+            Limpiar todos
+          </a>
+        </div>
+      </div>
+    )}
+  </div>
+  
+  <!-- Grid de obras -->
+  {obrasFiltradas.length > 0 ? (
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {obrasFiltradas.map(obra => (
+        <CardObra obra={obra} />
+      ))}
+    </div>
+  ) : (
+    <div class="text-center py-16 bg-white rounded-lg border">
+      <div class="text-6xl mb-4">📚</div>
+      <h3 class="text-xl font-display font-semibold text-gray-700 mb-2">
+        No se encontraron obras
+      </h3>
+      <p class="text-gray-600 mb-6">
+        No hay obras que coincidan con los filtros seleccionados.
+      </p>
+      <a href="/obras" class="btn-primario">
+        Ver todas las obras
+      </a>
+    </div>
+  )}
+  
+  <!-- Paginación (si hay muchas obras) -->
+  {obrasFiltradas.length > 12 && (
+    <div class="mt-12 pt-8 border-t text-center">
+      <div class="flex justify-center gap-2">
+        <button class="px-4 py-2 border rounded-lg hover:bg-gray-50">
+          &larr; Anterior
+        </button>
+        <button class="px-4 py-2 border rounded-lg bg-filosofia-acento text-white">
+          1
+        </button>
+        <button class="px-4 py-2 border rounded-lg hover:bg-gray-50">
+          2
+        </button>
+        <button class="px-4 py-2 border rounded-lg hover:bg-gray-50">
+          3
+        </button>
+        <span class="px-4 py-2">...</span>
+        <button class="px-4 py-2 border rounded-lg hover:bg-gray-50">
+          Siguiente &rarr;
+        </button>
+      </div>
+    </div>
+  )}
+</BaseLayout>

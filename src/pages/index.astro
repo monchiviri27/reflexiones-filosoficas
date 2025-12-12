@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CardObra from '../components/CardObra.astro';
+import { getCollection } from 'astro:content';
+
+// Obtener obras destacadas
+const todasObras = await getCollection('obras');
+const obrasDestacadas = todasObras
+  .filter(o => o.data.publicado)
+  .sort((a, b) => b.data.orden - a.data.orden)
+  .slice(0, 6);
+
+// Obtener algunos temas para mostrar
+const todosTemas = await getCollection('temas');
+const temasDestacados = todosTemas.slice(0, 8);
+---
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="mb-16">
+    <div class="bg-gradient-to-r from-filosofia-primario to-filosofia-acento text-white rounded-2xl p-8 md:p-12">
+      <div class="max-w-3xl">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">
+          Explorando la profundidad de la literatura
+        </h2>
+        <p class="text-xl mb-8 opacity-90">
+          Descubre poemas y cuentos acompañados de reflexiones filosóficas. 
+          Una mirada profunda a los grandes temas humanos a través de la literatura.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/obras" class="btn-primario bg-white text-filosofia-primario hover:bg-gray-100">
+            Explorar obras
+          </a>
+          <a href="/temas" class="btn-secundario border-white text-white hover:bg-white hover:text-filosofia-primario">
+            Ver temas
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Obras destacadas -->
+  <section class="mb-16">
+    <div class="flex justify-between items-center mb-8">
+      <h2 class="text-3xl font-display font-bold text-filosofia-primario">
+        Obras destacadas
+      </h2>
+      <a href="/obras" class="text-filosofia-acento hover:underline font-medium">
+        Ver todas →
+      </a>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {obrasDestacadas.map(obra => (
+        <CardObra obra={obra} />
+      ))}
+    </div>
+  </section>
+  
+  <!-- Temas destacados -->
+  <section class="mb-16">
+    <h2 class="text-3xl font-display font-bold text-filosofia-primario mb-8">
+      Explora por temas
+    </h2>
+    
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+      {temasDestacados.map(tema => (
+        <a 
+          href={`/temas/${tema.id}`}
+          class="bg-white p-6 rounded-lg border border-gray-200 hover:border-filosofia-acento hover:shadow-md transition-all group"
+        >
+          <div class="flex items-center gap-4 mb-3">
+            <div 
+              class="p-3 rounded-lg"
+              style={`background-color: ${tema.data.color}20; color: ${tema.data.color};`}
+            >
+              <span class="text-2xl">{tema.data.icono}</span>
+            </div>
+            <h3 class="font-display font-semibold text-lg text-filosofia-primario group-hover:text-filosofia-acento">
+              {tema.data.titulo}
+            </h3>
+          </div>
+          <p class="text-sm text-gray-600">
+            {tema.data.descripcion}
+          </p>
+        </a>
+      ))}
+    </div>
+    
+    <div class="text-center mt-8">
+      <a href="/temas" class="btn-secundario">
+        Ver todos los temas
+      </a>
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="bg-filosofia-claro rounded-2xl p-8 text-center">
+    <h3 class="text-2xl font-display font-bold text-filosofia-primario mb-4">
+      ¿Inspirado por Borges y la filosofía literaria?
+    </h3>
+    <p class="text-gray-600 mb-6 max-w-2xl mx-auto">
+      Este espacio nace de la fascinación por obras como "Arte Poética" que invitan 
+      a reflexionar más allá del texto. Cada análisis busca profundizar en los 
+      grandes interrogantes humanos.
+    </p>
+    <a href="/acerca" class="btn-primario">
+      Conoce más sobre este proyecto
+    </a>
+  </section>
+</BaseLayout>

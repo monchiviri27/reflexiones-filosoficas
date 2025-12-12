@@ -1,0 +1,90 @@
+---
+import { Heart, Coffee, Mail, Github } from 'lucide-astro';
+---
+
+<footer class="bg-filosofia-oscuro text-white mt-16">
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Columna 1: Acerca -->
+      <div>
+        <h3 class="text-xl font-display font-semibold mb-4">Reflexiones Filosóficas</h3>
+        <p class="text-gray-300 mb-4">
+          Un espacio para explorar la profundidad de la literatura a través del análisis filosófico.
+          Poemas, cuentos y ensayos con reflexiones sobre los grandes temas humanos.
+        </p>
+        <div class="flex items-center text-sm text-gray-400">
+          <Heart size={16} class="mr-2" />
+          <span>Hecho con pasión por la literatura y la filosofía</span>
+        </div>
+      </div>
+      
+      <!-- Columna 2: Enlaces rápidos -->
+      <div>
+        <h3 class="text-xl font-display font-semibold mb-4">Explorar</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="/obras" class="text-gray-300 hover:text-white transition-colors">
+              Todas las obras
+            </a>
+          </li>
+          <li>
+            <a href="/temas" class="text-gray-300 hover:text-white transition-colors">
+              Temas filosóficos
+            </a>
+          </li>
+          <li>
+            <a href="/autores" class="text-gray-300 hover:text-white transition-colors">
+              Autores
+            </a>
+          </li>
+          <li>
+            <a href="/acerca" class="text-gray-300 hover:text-white transition-colors">
+              Acerca del proyecto
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Columna 3: Contacto -->
+      <div>
+        <h3 class="text-xl font-display font-semibold mb-4">Conectar</h3>
+        <p class="text-gray-300 mb-4">
+          ¿Tienes sugerencias o quieres compartir una obra? Contáctanos.
+        </p>
+        <div class="flex space-x-4">
+          <a href="mailto:contacto@reflexionesfilosoficas.com" 
+             class="text-gray-300 hover:text-white transition-colors"
+             title="Enviar correo">
+            <Mail size={20} />
+          </a>
+          <a href="https://github.com" 
+             target="_blank"
+             rel="noopener noreferrer"
+             class="text-gray-300 hover:text-white transition-colors"
+             title="GitHub">
+            <Github size={20} />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Divider -->
+    <div class="border-t border-gray-700 mt-8 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="text-gray-400 text-sm mb-4 md:mb-0">
+          &copy; {new Date().getFullYear()} Reflexiones Filosóficas. Todos los derechos reservados.
+        </div>
+        
+        <div class="flex items-center text-sm text-gray-400">
+          <Coffee size={16} class="mr-2" />
+          <span>Inspirado por Borges, filosofía y buena literatura</span>
+        </div>
+      </div>
+      
+      <div class="text-center text-gray-500 text-xs mt-4">
+        <p>Las obras literarias se presentan con fines educativos y de análisis filosófico.</p>
+        <p class="mt-1">Los derechos de autor de las obras originales pertenecen a sus respectivos autores.</p>
+      </div>
+    </div>
+  </div>
+</footer>

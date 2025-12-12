@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-filosofia-claro text-gray-800;
+  }
+  
+  /* Estilos para poesía */
+  .texto-poema {
+    font-family: 'Cormorant Garamond', serif;
+    @apply text-lg leading-relaxed;
+    font-variant-ligatures: common-ligatures;
+    font-feature-settings: "kern", "liga", "clig", "calt";
+  }
+  
+  .texto-poema p {
+    @apply my-4;
+  }
+  
+  /* Estilos para citas */
+  .cita-destacada {
+    @apply border-l-4 border-filosofia-acento pl-6 py-2 my-8 italic text-lg;
+    quotes: "«" "»" "‹" "›";
+  }
+  
+  .cita-destacada::before {
+    content: open-quote;
+    @apply text-filosofia-acento text-2xl mr-1;
+  }
+  
+  .cita-destacada::after {
+    content: close-quote;
+    @apply text-filosofia-acento text-2xl ml-1;
+  }
+  
+  /* Estilos para contenido markdown/prose */
+  .prose {
+    @apply max-w-none;
+  }
+  
+  .prose h1, .prose h2, .prose h3, .prose h4 {
+    @apply font-display font-bold text-filosofia-primario mt-8 mb-4;
+  }
+  
+  .prose h1 {
+    @apply text-3xl;
+  }
+  
+  .prose h2 {
+    @apply text-2xl;
+  }
+  
+  .prose h3 {
+    @apply text-xl;
+  }
+  
+  .prose p {
+    @apply my-4 text-gray-700 leading-relaxed;
+  }
+  
+  .prose a {
+    @apply text-filosofia-acento hover:underline;
+  }
+  
+  .prose ul, .prose ol {
+    @apply my-4 pl-6;
+  }
+  
+  .prose li {
+    @apply my-2;
+  }
+  
+  .prose blockquote {
+    @apply border-l-4 border-gray-300 pl-4 italic my-6 text-gray-600;
+  }
+  
+  .prose code {
+    @apply bg-gray-100 px-1 py-0.5 rounded text-sm;
+  }
+  
+  .prose pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+  }
+}
+
+@layer components {
+  .card-obra {
+    @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+  }
+  
+  .badge-tema {
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .btn-primario {
+    @apply bg-filosofia-primario text-white px-4 py-2 rounded hover:bg-filosofia-oscuro transition-colors;
+  }
+  
+  .btn-secundario {
+    @apply border border-filosofia-acento text-filosofia-acento px-4 py-2 rounded hover:bg-filosofia-acento hover:text-white transition-colors;
+  }
+}
+
+/* Animaciones sutiles */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-filosofia-secundario rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-filosofia-primario;
+}

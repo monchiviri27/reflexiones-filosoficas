@@ -1,0 +1,29 @@
+---
+import ObraLayout from '../../layouts/ObraLayout.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+// Obtener el parámetro de la ruta
+export async function getStaticPaths() {
+  const obras = await getCollection('obras');
+  return obras.map(obra => ({
+    params: { id: obra.id },
+    props: { obra }
+  }));
+}
+
+const { id } = Astro.params;
+const { obra } = Astro.props;
+
+if (!obra) {
+  // Redirigir a 404 si no existe la obra
+  return Astro.redirect('/404');
+}
+
+const { Content } = await obra.render();
+---
+
+<ObraLayout obra={obra}>
+  <div class="prose prose-lg max-w-none">
+    <Content />
+  </div>
+</ObraLayout>

@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Book, Users, Target, Zap } from 'lucide-astro';
+---
+
+<BaseLayout title="Acerca de">
+  <article class="max-w-4xl mx-auto">
+    <!-- Hero -->
+    <div class="mb-12 text-center">
+      <h1 class="text-4xl md:text-5xl font-display font-bold text-filosofia-primario mb-6">
+        Acerca de Reflexiones Filosóficas
+      </h1>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Un espacio donde la literatura encuentra a la filosofía, y juntas nos invitan a reflexionar 
+        sobre los grandes interrogantes de la existencia humana.
+      </p>
+    </div>
+    
+    <!-- Misión -->
+    <section class="mb-16">
+      <div class="bg-gradient-to-r from-filosofia-primario/5 to-filosofia-acento/5 p-8 rounded-2xl">
+        <h2 class="text-3xl font-display font-bold text-filosofia-primario mb-6 flex items-center gap-3">
+          <Target size={32} />
+          Nuestra misión
+        </h2>
+        <div class="prose prose-lg max-w-none">
+          <p>
+            En <strong>Reflexiones Filosóficas</strong> buscamos tender puentes entre la experiencia 
+            literaria y el pensamiento filosófico. Creemos que los grandes poemas, cuentos y ensayos 
+            no solo cuentan historias o expresan emociones, sino que plantean preguntas fundamentales 
+            sobre la vida, la muerte, el tiempo, la identidad y otros temas que han preocupado al ser 
+            humano desde siempre.
+          </p>
+          <p>
+            Cada análisis que presentamos busca profundizar en estas preguntas, conectando la obra 
+            literaria con corrientes filosóficas, autores y conceptos que puedan iluminar nuevas 
+            capas de significado.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Valores -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-display font-bold text-filosofia-primario mb-8 text-center">
+        Nuestros valores
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-xl border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="p-3 bg-filosofia-primario/10 text-filosofia-primario rounded-lg">
+              <Book size={24} />
+            </div>
+            <h3 class="text-xl font-display font-semibold text-filosofia-primario">
+              Profundidad literaria
+            </h3>
+          </div>
+          <p class="text-gray-600">
+            Respetamos la integridad de cada obra literaria, presentándola completa y en su contexto,
+            antes de proceder al análisis filosófico.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="p-3 bg-filosofia-acento/10 text-filosofia-acento rounded-lg">
+              <Zap size={24} />
+            </div>
+            <h3 class="text-xl font-display font-semibold text-filosofia-primario">
+              Claridad conceptual
+            </h3>
+          </div>
+          <p class="text-gray-600">
+            Explicamos conceptos filosóficos complejos de manera accesible, sin simplificarlos
+            excesivamente, para que cualquier lector pueda comprender y apreciar el análisis.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="p-3 bg-filosofia-primario/10 text-filosofia-primario rounded-lg">
+              <Users size={24} />
+            </div>
+            <h3 class="text-xl font-display font-semibold text-filosofia-primario">
+              Diálogo abierto
+            </h3>
+          </div>
+          <p class="text-gray-600">
+            Fomentamos la reflexión personal y el intercambio de ideas. Cada obra incluye preguntas
+            para guiar la propia exploración del lector.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-xl border border-gray-200">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="p-3 bg-filosofia-acento/10 text-filosofia-acento rounded-lg">
+              <Target size={24} />
+            </div>
+            <h3 class="text-xl font-display font-semibold text-filosofia-primario">
+              Acceso libre
+            </h3>
+          </div>
+          <p class="text-gray-600">
+            Creemos que el conocimiento filosófico y literario debe ser accesible para todos.
+            Todo el contenido es gratuito y estará siempre disponible.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Inspiración -->
+    <section class="mb-16">
+      <div class="bg-filosofia-claro p-8 rounded-2xl">
+        <h2 class="text-3xl font-display font-bold text-filosofia-primario mb-6">
+          Inspiración borgiana
+        </h2>
+        <div class="prose prose-lg max-w-none">
+          <p>
+            Este proyecto nació de una lectura atenta de <strong>"Arte Poética"</strong> de Jorge Luis Borges.
+            En ese poema, Borges reflexiona sobre la naturaleza del arte y su relación con el tiempo:
+          </p>
+          <blockquote class="cita-destacada text-lg my-6">
+            "Mirar el río hecho de tiempo y agua y recordar que el tiempo es otro río..."
+          </blockquote>
+          <p>
+            Esa capacidad de Borges para unir la imagen poética con la reflexión metafísica nos inspiró
+            a crear un espacio dedicado a explorar estas conexiones en diversas obras literarias.
+          </p>
+          <p>
+            Al igual que Borges, creemos que la literatura no es solo entretenimiento, sino una forma
+            de conocimiento, una manera de explorar las preguntas más profundas de la existencia humana.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="text-center">
+      <div class="bg-gradient-to-r from-filosofia-primario to-filosofia-acento text-white p-8 rounded-2xl">
+        <h2 class="text-2xl font-display font-bold mb-4">
+          ¿Te gustaría contribuir?
+        </h2>
+        <p class="mb-6 opacity-90 max-w-2xl mx-auto">
+          Si tienes una obra literaria que te gustaría ver analizada, o si quieres compartir tu propia
+          reflexión filosófica sobre alguna obra, no dudes en contactarnos.
+        </p>
+        <a 
+          href="mailto:contacto@reflexionesfilosoficas.com"
+          class="inline-flex items-center gap-2 bg-white text-filosofia-primario px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+        >
+          ✉️ Contactar
+        </a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
