@@ -7,7 +7,7 @@ tipo: "poema"
 temas_principales: 
   - "vida-existencia"
   - "tiempo-eternidad"
-  - "arrepentimiento-perdida"
+  - "sufrimiento-resignificacion"
 temas_secundarios:
   - "envejecimiento"
   - "sabiduria"

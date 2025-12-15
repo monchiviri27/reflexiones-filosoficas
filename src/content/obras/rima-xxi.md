@@ -6,7 +6,7 @@ fecha: 1871-01-01
 tipo: "poema"
 temas_principales: 
   - "amor-dolor"
-  - "memoria-identidad"
+  - "identidad-memoria"
   - "tiempo-eternidad"
 temas_secundarios:
   - "soledad-comunidad"

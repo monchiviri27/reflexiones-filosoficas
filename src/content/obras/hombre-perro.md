@@ -6,8 +6,8 @@ fecha: 1969-01-01
 tipo: "cuento"
 temas_principales: 
   - "identidad-memoria"
-  - "sociedad-comunidad"
-  - "existencia-vida"
+  - "soledad-comunidad"
+  - "vida-existencia"
 temas_secundarios:
   - "alienacion"
   - "trabajo"
