@@ -10,7 +10,7 @@ const obrasCollection = defineCollection({
     fecha: z.date(),
     tipo: z.enum(['poema', 'cuento', 'ensayo', 'microficcion']),
     // CAMBIO CRUCIAL: Ahora acepta cualquier string, no solo 20 temas fijos
-    temas_principales: z.array(z.string()).min(1).max(3).default(['filosofia']),
+    temas_principales: z.array(z.string()).min(1).max(3), // <- ELIMINADO .default(['filosofia'])
     temas_secundarios: z.array(z.string()).optional().default([]),
     resumen: z.string().max(200),
     imagen: image().optional(),
