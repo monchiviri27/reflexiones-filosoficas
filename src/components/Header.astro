@@ -1,6 +1,14 @@
 ---
 import { BookOpen, Search, Menu, X } from 'lucide-astro';
-import { temas } from '../content/config';
+// Lista fija de temas para el header (ya no importamos de config.ts)
+const temasHeader = [
+  'tiempo-eternidad',
+  'identidad-memoria',
+  'realidad-sueno',
+  'vida-existencia',
+  'lenguaje-significado',
+  'soledad-comunidad'
+];
 ---
 
 <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b shadow-sm">
@@ -75,7 +83,7 @@ import { temas } from '../content/config';
       <div class="mt-6 pt-6 border-t">
         <h3 class="font-semibold text-filosofia-primario mb-3">Temas populares</h3>
         <div class="flex flex-wrap gap-2">
-          {temas.slice(0, 6).map(tema => (
+          {temasHeader.slice(0, 6).map(tema => (
             <a 
               href={`/temas/${tema}`}
               class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full hover:bg-filosofia-acento hover:text-white transition-colors"

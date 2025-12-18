@@ -1,30 +1,6 @@
 import { defineCollection, z } from 'astro:content';
 
-// Definir los 20 temas
-export const temas = [
-  'tiempo-eternidad',
-  'identidad-memoria',
-  'realidad-sueno',
-  'muerte-transcendencia',
-  'vida-existencia',
-  'lenguaje-significado',
-  'soledad-comunidad',
-  'destino-liber-albedrio',
-  'belleza-arte',
-  'amor-dolor',
-  'infinito-limites',
-  'etica-moral',
-  'conocimiento-verdad',
-  'libertad-responsabilidad',
-  'naturaleza-humano',
-  'dios-sagrado',
-  'sufrimiento-resignificacion',
-  'poder-justicia',
-  'tecnologia-humanidad',
-  'silencio-vacio'
-] as const;
-
-// Colección de obras literarias
+// Colección de obras literarias - VERSIÓN SIMPLIFICADA
 const obrasCollection = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
@@ -33,7 +9,8 @@ const obrasCollection = defineCollection({
     autor: z.string(),
     fecha: z.date(),
     tipo: z.enum(['poema', 'cuento', 'ensayo', 'microficcion']),
-    temas_principales: z.array(z.enum(temas)).min(1).max(3),
+    // CAMBIO CRUCIAL: Ahora acepta cualquier string, no solo 20 temas fijos
+    temas_principales: z.array(z.string()).min(1).max(3).default(['filosofia']),
     temas_secundarios: z.array(z.string()).optional().default([]),
     resumen: z.string().max(200),
     imagen: image().optional(),
@@ -46,7 +23,7 @@ const obrasCollection = defineCollection({
   })
 });
 
-// Colección de autores
+// Colección de autores (puede estar vacía)
 const autoresCollection = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
@@ -60,11 +37,11 @@ const autoresCollection = defineCollection({
   })
 });
 
-// Colección de temas (páginas descriptivas de cada tema)
+// Colección de temas (OPCIONAL - puedes eliminarla si quieres)
 const temasCollection = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
-    id: z.enum(temas),
+    id: z.string(),
     titulo: z.string(),
     descripcion: z.string(),
     icono: z.string(),
