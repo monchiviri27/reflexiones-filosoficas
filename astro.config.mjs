@@ -10,5 +10,8 @@ export default defineConfig({
     shikiConfig: {
       theme: 'dracula',
     }
-  }
+  },
+  // Agrega esta configuración para Vercel
+  output: 'static',
+  adapter: vercel()
 });
