@@ -4,20 +4,8 @@ titulo: "Funes el memorioso"
 autor: "Jorge Luis Borges"
 fecha: 1942-01-01
 tipo: "cuento"
-temas_principales: 
-  - "memoria-olvido"
-  - "percepcion-realidad"
-  - "lenguaje-pensamiento"
-temas_secundarios:
-  - "dolor-conciencia"
-  - "infinito-limites"
-  - "identidad"
 resumen: "Tras un accidente, Ireneo Funes adquiere memoria perfecta: recuerda absolutamente todo. Esta 'bendición' lo condena al detalle infinito, haciendo imposible el pensamiento abstracto y hasta el sueño."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "avanzado"
 publicado: true
-orden: 5
 ---
 
 ## Texto completo del cuento (versión resumida)

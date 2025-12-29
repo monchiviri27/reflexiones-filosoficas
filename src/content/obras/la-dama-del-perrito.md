@@ -4,21 +4,9 @@ titulo: "La dama del perrito"
 autor: "Antón Chéjov"
 fecha: 1899-01-01
 tipo: "cuento"
-temas_principales: 
-  - "amor-prohibido"
-  - "moral-convencion"
-  - "autenticidad-hipocresia"
-temas_secundarios:
-  - "arrepentimiento"
-  - "rutina-vida"
-  - "felicidad-imposible"
 resumen: "Dimitri y Anna se conocen de vacaciones en Yalta, ambos casados pero infelices. Inician una relación que creen pasajera, pero el amor verdadero surge, confrontándolos con una dolorosa elección entre moralidad y felicidad."
 cita_destacada: "Sólo ahora, cuando su cabeza estaba cana, había logrado enamorarse como es debido, por primera vez en la vida."
-epoca: "moderna"
-region: "rusa"
-dificultad: "intermedio"
 publicado: true
-orden: 65
 ---
 
 ## Texto completo (versión resumida)

@@ -4,21 +4,9 @@ titulo: "La noche boca arriba"
 autor: "Julio Cortázar"
 fecha: 1956-01-01
 tipo: "cuento"
-temas_principales: 
-  - "realidad-sueno"
-  - "tiempo-eternidad"
-  - "muerte-vida"
-temas_secundarios:
-  - "miedo"
-  - "civilizacion-barbarie"
-  - "destino"
 resumen: "Un hombre tiene un accidente en moto y es hospitalizado, donde sueña recurrentemente que es un prisionero a punto de ser sacrificado en un ritual azteca, hasta que los planos de realidad se invierten."
 cita_destacada: "Cuando despertó, el dinosaurio todavía estaba allí."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "intermedio"
 publicado: true
-orden: 20
 ---
 
 ## Texto completo del cuento

@@ -4,21 +4,9 @@ titulo: "El huevo"
 autor: "Andy Weir"
 fecha: 2009-01-01
 tipo: "cuento"
-temas_principales: 
-  - "vida-existencia"
-  - "identidad-memoria"
-  - "etica-moral"
-temas_secundarios:
-  - "reencarnacion"
-  - "empatia"
-  - "unidad"
 resumen: "Un hombre muere en un accidente y se encuentra con Dios, quien le revela que todas las personas que han existido y existirán son en realidad él mismo, experimentando cada vida humana posible."
 cita_destacada: "Cada vez que lastimas a alguien, te estás lastimando a ti mismo. Cada acto de bondad que hagas, te lo haces a ti mismo."
-epoca: "contemporanea"
-region: "occidental"
-dificultad: "introductorio"
 publicado: true
-orden: 35
 ---
 
 ## Texto completo del cuento

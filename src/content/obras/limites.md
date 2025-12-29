@@ -4,20 +4,9 @@ titulo: "Límites"
 autor: "Jorge Luis Borges"
 fecha: 1958-01-01
 tipo: "poema"
-temas_principales: 
-  - "tiempo-eternidad"
-  - "identidad-memoria"
-  - "infinito-limites"
-temas_secundarios:
-  - "muerte-transcendencia"
-  - "lenguaje-significado"
 resumen: "Reflexión sobre los límites de la experiencia humana: lo recordado frente a lo olvidado, lo poseído frente a lo perdido, y la conciencia de nuestra finitud."
 cita_destacada: "De estas calles que ahondan el poniente, una habrá (no sé cuál) que he recorrido por última vez, indiferente y sin adivinarlo, sometido."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "intermedio"
 publicado: true
-orden: 90
 ---
 
 ## Texto del poema

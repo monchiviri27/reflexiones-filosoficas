@@ -4,21 +4,9 @@ titulo: "Oda al tiempo"
 autor: "Pablo Neruda"
 fecha: 1964-01-01
 tipo: "poema"
-temas_principales: 
-  - "tiempo-eternidad"
-  - "memoria-olvido"
-  - "vida-muerte"
-temas_secundarios:
-  - "naturaleza-cosmos"
-  - "melancolia"
-  - "aceptacion"
 resumen: "Fragmento de Neruda donde dialoga con el tiempo como entidad, cuestionando su naturaleza implacable y nuestra relación pasiva con él, buscando una reconciliación filosófica."
 cita_destacada: "Tiempo, no te detengas, no congeles tu fuente eterna."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "intermedio"
 publicado: true
-orden: 30
 ---
 
 ## Texto completo del poema (fragmento)

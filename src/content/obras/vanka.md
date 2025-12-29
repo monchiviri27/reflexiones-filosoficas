@@ -3,22 +3,10 @@ id: la-nariz
 titulo: "La nariz"
 autor: "Nikolái Gógol"
 fecha: 1836-01-01
-tipo: "cuento"
-temas_principales: 
-  - "identidad-perdida"
-  - "absurdo-burocracia"
-  - "apariencia-realidad"
-temas_secundarios:
-  - "humor-absurdo"
-  - "estatus-social"
-  - "locura-cotidiana"
+tipo: "cuento"  
 resumen: "El barbero Iván Yákovlevich encuentra una nariz en su pan de la mañana. Descubre que pertenece a su cliente, el funcionario Kovalióv. Mientras tanto, Kovalióv descubre que su nariz ha desaparecido de su cara y ahora vive independientemente como un funcionario de rango superior."
 cita_destacada: "No, esto sencillamente no puede ser. ¡Es increíble! ¡Esto es imposible!"
-epoca: "moderna"
-region: "rusa"
-dificultad: "introductorio"
 publicado: true
-orden: 70
 ---
 
 ## Texto completo (versión resumida)

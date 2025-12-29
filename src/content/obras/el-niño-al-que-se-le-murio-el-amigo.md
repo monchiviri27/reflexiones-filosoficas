@@ -4,21 +4,9 @@ titulo: "El niño al que se le murió el amigo"
 autor: "Ana María Shua"
 fecha: 1984-01-01
 tipo: "microficcion"
-temas_principales: 
-  - "perdida-duelo"
-  - "imaginacion-infancia"
-  - "soledad"
-temas_secundarios:
-  - "crecimiento"
-  - "amistad"
-  - "realidad-fantasia"
 resumen: "Un niño tiene un amigo imaginario. Un día, el amigo imaginario se muere. El niño descubre que hay pérdidas para las que nadie te prepara."
 cita_destacada: "El niño al que se le murió el amigo nunca más quiso tener otro."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "introductorio"
 publicado: true
-orden: 50
 ---
 
 ## Texto completo del microcuento

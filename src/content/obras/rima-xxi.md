@@ -4,19 +4,9 @@ titulo: "Rima XXI"
 autor: "Gustavo Adolfo Bécquer"
 fecha: 1871-01-01
 tipo: "poema"
-temas_principales: 
-  - "amor-dolor"
-  - "identidad-memoria"
-  - "tiempo-eternidad"
-temas_secundarios:
-  - "soledad-comunidad"
 resumen: "Breve poema sobre el amor perdido y cómo ciertas palabras o gestos pueden evocar recuerdos profundos de lo que fue y ya no es."
 cita_destacada: "¿Qué es poesía?, dices mientras clavas / en mi pupila tu pupila azul. / ¿Qué es poesía? ¿Y tú me lo preguntas? / Poesía... eres tú."
-epoca: "moderna"
-region: "occidental"
-dificultad: "introductorio"
 publicado: true
-orden: 70
 ---
 
 ## Texto del poema

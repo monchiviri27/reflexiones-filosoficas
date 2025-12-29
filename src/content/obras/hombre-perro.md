@@ -4,20 +4,9 @@ titulo: "El hombre que se convirtió en perro"
 autor: "Augusto Monterroso"
 fecha: 1969-01-01
 tipo: "cuento"
-temas_principales: 
-  - "identidad-memoria"
-  - "soledad-comunidad"
-  - "vida-existencia"
-temas_secundarios:
-  - "alienacion"
-  - "trabajo"
 resumen: "Microcuento sobre un hombre que, tras buscar trabajo desesperadamente, acepta un puesto como guardián y termina convirtiéndose literalmente en perro."
 cita_destacada: "Y la verdad es que en el fondo siempre había querido ser Perro, y que si hasta entonces no lo había sido se debía únicamente a no haber podido conseguir un buen puesto de Perro."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "introductorio"
 publicado: true
-orden: 60
 ---
 
 ## Texto del cuento

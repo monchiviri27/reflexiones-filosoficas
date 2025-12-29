@@ -4,21 +4,9 @@ titulo: "Caminante, son tus huellas"
 autor: "Antonio Machado"
 fecha: 1912-01-01
 tipo: "poema"
-temas_principales: 
-  - "camino-vida"
-  - "responsabilidad-eleccion"
-  - "presente-futuro"
-temas_secundarios:
-  - "libertad"
-  - "consecuencias"
-  - "autoria-vida"
 resumen: "Breve poema que nos recuerda que no hay camino predeterminado: se hace camino al andar, y al volver la vista atrás, vemos la senda que nunca se ha de volver a pisar."
 cita_destacada: "Caminante, no hay camino, se hace camino al andar."
-epoca: "moderna"
-region: "espanola"
-dificultad: "introductorio"
 publicado: true
-orden: 55
 ---
 
 ## Texto completo del poema

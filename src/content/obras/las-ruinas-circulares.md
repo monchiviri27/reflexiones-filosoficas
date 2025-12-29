@@ -4,21 +4,9 @@ titulo: "Las Ruinas Circulares"
 autor: "Jorge Luis Borges"
 fecha: 1940-01-01
 tipo: "cuento"
-temas_principales: 
-  - "realidad-sueno"
-  - "identidad-memoria"
-  - "belleza-arte"
-temas_secundarios:
-  - "tiempo-eternidad"
-  - "dios-sagrado"
-  - "infinito-limites"
 resumen: "Un hombre llega a unas ruinas circulares para soñar un hijo a la perfección, descubriendo al final que él mismo es el sueño de otro."
 cita_destacada: "Con alivio, con humillación, con terror, comprendió que él también era una apariencia, que otro estaba soñándolo."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "avanzado"
 publicado: true
-orden: 80
 ---
 
 ## Texto del cuento

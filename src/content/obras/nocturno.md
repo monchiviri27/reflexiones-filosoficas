@@ -4,21 +4,9 @@ titulo: "Nocturno"
 autor: "José Asunción Silva"
 fecha: 1896-01-01
 tipo: "poema"
-temas_principales: 
-  - "muerte-transcendencia"
-  - "tiempo-eternidad"
-  - "amor-dolor"
-temas_secundarios:
-  - "memoria"
-  - "noche"
-  - "melancolia"
 resumen: "Poema modernista que explora el duelo, la memoria de un amor perdido y la confrontación con la muerte a través de una noche de insomnio y recuerdos."
 cita_destacada: "Una noche, una noche toda llena de murmullos, de perfumes y de músicas de alas..."
-epoca: "moderna"
-region: "latinoamericana"
-dificultad: "introductorio"
 publicado: true
-orden: 30
 ---
 
 ## Texto del poema

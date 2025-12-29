@@ -4,20 +4,9 @@ titulo: "Instantes"
 autor: "Jorge Luis Borges (atribuido)"
 fecha: 1990-01-01
 tipo: "poema"
-temas_principales: 
-  - "vida-existencia"
-  - "tiempo-eternidad"
-  - "sufrimiento-resignificacion"
-temas_secundarios:
-  - "envejecimiento"
-  - "sabiduria"
 resumen: "Poema sobre lo que el autor haría si pudiera vivir nuevamente, destacando la importancia de vivir plenamente cada momento."
 cita_destacada: "Si pudiera vivir nuevamente mi vida, en la próxima trataría de cometer más errores."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "introductorio"
 publicado: true
-orden: 50
 ---
 
 ## Texto del poema

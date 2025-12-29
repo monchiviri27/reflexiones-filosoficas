@@ -4,21 +4,9 @@ titulo: "El gigante egoísta"
 autor: "Oscar Wilde"
 fecha: 1888-01-01
 tipo: "fabula"
-temas_principales: 
-  - "generosidad-egoismo"
-  - "soledad-comunidad"
-  - "perdicion-redencion"
-temas_secundarios:
-  - "infancia-inocencia"
-  - "naturaleza-alegria"
-  - "muerte-transformacion"
 resumen: "Un gigante egoísta construye un muro alto alrededor de su jardín para que los niños no jueguen allí. Pero al excluir a los niños, también ahuyenta la primavera, condenando su jardín y su corazón a un invierno eterno, hasta que un niño especial lo redime."
 cita_destacada: "Porque tú me dejaste jugar en tu jardín, hoy vendrás conmigo a mi jardín, que es el Paraíso."
-epoca: "moderna"
-region: "britanica"
-dificultad: "introductorio"
 publicado: true
-orden: 85
 ---
 
 ## Texto completo (versión de Oscar Wilde)

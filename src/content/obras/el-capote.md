@@ -4,21 +4,9 @@ titulo: "El capote"
 autor: "Nikolái Gógol"
 fecha: 1842-01-01
 tipo: "cuento"
-temas_principales: 
-  - "dignidad-humana"
-  - "materialismo-significado"
-  - "soledad-burocracia"
-temas_secundarios:
-  - "sociedad-clases"
-  - "obsesion"
-  - "justicia-fantasma"
 resumen: "Akaki Akákievich, un humilde funcionario, ahorra durante años para comprar un abrigo nuevo. Cuando finalmente lo consigue, el abrigo le da una nueva identidad... hasta que es robado, desencadenando una tragedia absurda."
 cita_destacada: "Era un eterno escribiente, un hombre del que, al parecer, había nacido ya completamente hecho, con uniforme oficial y calva en la cabeza."
-epoca: "moderna"
-region: "rusa"
-dificultad: "intermedio"
 publicado: true
-orden: 60
 ---
 
 ## Texto completo (versión resumida)

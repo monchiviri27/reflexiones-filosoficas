@@ -4,21 +4,9 @@ titulo: "El dinosaurio"
 autor: "Augusto Monterroso"
 fecha: 1959-01-01
 tipo: "microficcion"
-temas_principales: 
-  - "tiempo-eternidad"
-  - "realidad-sueno"
-  - "infinito-limites"
-temas_secundarios:
-  - "sorpresa"
-  - "brevedad"
-  - "humor"
 resumen: "Considerado el microrrelato más corto de la literatura en español, plantea preguntas sobre tiempo, realidad y sorpresa existencial en solo siete palabras."
 cita_destacada: "Cuando despertó, el dinosaurio todavía estaba allí."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "introductorio"
 publicado: true
-orden: 40
 ---
 
 ## Texto del microrrelato

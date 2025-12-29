@@ -4,20 +4,9 @@ titulo: "Arte Poética"
 autor: "Jorge Luis Borges"
 fecha: 1960-01-01
 tipo: "poema"
-temas_principales: 
-  - "tiempo-eternidad"
-  - "lenguaje-significado"
-  - "belleza-arte"
-temas_secundarios:
-  - "memoria"
-  - "creacion"
 resumen: "Reflexión metapoética sobre la naturaleza del arte y su relación con el tiempo y la memoria."
 cita_destacada: "El arte es fuego y bronce, no documentación."
-epoca: "contemporanea"
-region: "latinoamericana"
-dificultad: "intermedio"
 publicado: true
-orden: 100
 ---
 
 ## Texto del poema

@@ -4,21 +4,9 @@ titulo: "El forastero misterioso"
 autor: "Mark Twain"
 fecha: 1916-01-01
 tipo: "cuento"
-temas_principales: 
-  - "libre-albedrio"
-  - "moralidad-humana"
-  - "sufrimiento-bien"
-temas_secundarios:
-  - "religion-dios"
-  - "inocencia-maldad"
-  - "fatalismo-libertad"
 resumen: "Un ángel llamado Satán (no el diablo) visita a tres niños en la Austria medieval. Les muestra visiones del futuro y plantea preguntas incómodas sobre moralidad, sufrimiento, y si los humanos realmente tienen libre albedrío."
 cita_destacada: "¿Qué es el hombre? Un animal que inventó la moral, pero el único animal que la necesita."
-epoca: "moderna"
-region: "estadounidense"
-dificultad: "intermedio"
 publicado: true
-orden: 80
 ---
 
 ## Texto completo (versión adaptada)
